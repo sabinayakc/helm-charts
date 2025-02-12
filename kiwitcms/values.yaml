@@ -1,0 +1,58 @@
+image:
+  repository: kiwitcms/kiwi
+  pullPolicy: IfNotPresent
+  # Full list of available tags can be found here:
+  #   https://hub.docker.com/r/kiwitcms/kiwi/tags
+  tag: latest
+
+service:
+  type: ClusterIP
+  port:
+    http: 8080
+    https: 8443
+
+ingress:
+  enabled: false
+  className: nginx
+  annotations:
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/ssl-redirect: "true"
+    kubernetes.io/ingress.allow-http: "false"
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+
+  host: kiwi.example.org
+  tls:
+    enabled: true
+    port: 443
+
+resources:
+  limits:
+    cpu: 300m
+    memory: 512Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
+storage:
+  # If persistent storage is not enabled, chart will create in-memory directory
+  # that will be destroyed upon pod restart
+  persistent: true
+
+  # Available class can be listed by "kubectl get storageclasses" command
+  class: standard
+
+  # The size of the storgae where uploaded files will be kept
+  size: 32Gi
+
+media:
+  root: "/Kiwi/uploads"
+  url: "/uploads/"
+
+email:
+  from: "kiwi@example.com"
+  subject: "[Kiwi-TCMS] "
+
+database:
+  existingSecret: db-secret
