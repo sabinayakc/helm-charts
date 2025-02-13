@@ -45,27 +45,27 @@ spec:
           - name: KIWI_DB_USER
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.database.existingSecret }}
+                name: {{ $secret_name }}
                 key: db_username
           - name: KIWI_DB_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: {{ .Values.database.existingSecret }}
-                key: db_password
+                key: KIWI_DB_PASSWORD
           - name: KIWI_DB_HOST
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.database.existingSecret }}
+                name: {{ $secret_name }}
                 key: db_host
           - name: KIWI_DB_PORT
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.database.existingSecret }}
+                name: {{ $secret_name }}
                 key: db_port
           - name: KIWI_DB_NAME
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.database.existingSecret }}
+                name: {{ $secret_name }}
                 key: db_name
 
       containers:
@@ -95,30 +95,32 @@ spec:
               secretKeyRef:
                 name: {{ $secret_name }} 
                 key: secret_key
+          - name: KIWI_DB_ENGINE
+            value: django.db.backends.postgresql
           - name: KIWI_DB_USER
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.database.existingSecret }}
+                name: {{ $secret_name }}
                 key: db_username
           - name: KIWI_DB_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: {{ .Values.database.existingSecret }}
-                key: db_password
+                key: KIWI_DB_PASSWORD
           - name: KIWI_DB_HOST
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.database.existingSecret }}
+                name: {{ $secret_name }}
                 key: db_host
           - name: KIWI_DB_PORT
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.database.existingSecret }}
+                name: {{ $secret_name }}
                 key: db_port
           - name: KIWI_DB_NAME
             valueFrom:
               secretKeyRef:
-                name: {{ .Values.database.existingSecret }}
+                name: {{ $secret_name }}
                 key: db_name
           - name: SERVER_EMAIL
             value: {{ .Values.email.from }}
