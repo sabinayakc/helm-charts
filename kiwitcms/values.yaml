@@ -55,8 +55,8 @@ email:
   subject: "[Kiwi-TCMS] "
 
 database:
-  existingSecret: db-secret
-  host: kiwi-db
-  name: kiwi
-  port: 5432
-  user: kiwi
+  existingSecret: "db-secret"
+  host: "kiwi-db"
+  name: "kiwi"
+  port: "5432"
+  user: "kiwi"
