@@ -85,10 +85,12 @@ spec:
             httpGet:
               path: /accounts/login/
               port: https
+              scheme: HTTPS
           readinessProbe:
             httpGet:
               path: /accounts/login/
               port: https
+              scheme: HTTPS
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
