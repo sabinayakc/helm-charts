@@ -37,6 +37,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["/Kiwi/manage.py", "migrate"]
           env:
+          - name: KIWI_DB_ENGINE
+            value: django.db.backends.postgresql          
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
