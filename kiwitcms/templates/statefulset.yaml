@@ -84,11 +84,11 @@ spec:
           livenessProbe:
             httpGet:
               path: /accounts/login/
-              port: http
+              port: https
           readinessProbe:
             httpGet:
               path: /accounts/login/
-              port: http
+              port: https
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:

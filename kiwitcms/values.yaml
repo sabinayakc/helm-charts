@@ -13,19 +13,19 @@ service:
 
 ingress:
   enabled: false
-  className: nginx
-  annotations:
-    acme.cert-manager.io/http01-edit-in-place: "true"
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    ingress.kubernetes.io/ssl-redirect: "true"
-    kubernetes.io/ingress.allow-http: "false"
-    kubernetes.io/tls-acme: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  # className: nginx
+  # annotations:
+  #   acme.cert-manager.io/http01-edit-in-place: "true"
+  #   cert-manager.io/cluster-issuer: letsencrypt-prod
+  #   ingress.kubernetes.io/ssl-redirect: "true"
+  #   kubernetes.io/ingress.allow-http: "false"
+  #   kubernetes.io/tls-acme: "true"
+  #   nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 
   host: kiwi.example.org
-  tls:
-    enabled: true
-    port: 443
+  # tls:
+  #   enabled: true
+  #   port: 443
 
 resources:
   limits:
