@@ -30,9 +30,6 @@ spec:
           {{- else -}}
           emptyDir: {}
           {{- end }}
-        - name: settings-volume
-          configMap:
-            name: kiwi-settings
 
       initContainers:
         - name: migrations
@@ -74,11 +71,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: {{ $secret_name }}
-                key: db_name
-          volumeMounts:
-          - name: settings-volume
-            mountPath: /venv/lib64/python3.11/site-packages/tcms/settings/local_settings.py
-            subPath: settings.py                   
+                key: db_name         
 
       containers:
         - name: {{ .Chart.Name }}
@@ -150,7 +143,4 @@ spec:
 
           volumeMounts:
           - name: media
-            mountPath: {{ .Values.media.root }}
-          - name: settings-volume
-            mountPath: /venv/lib64/python3.11/site-packages/tcms/settings/local_settings.py
-            subPath: settings.py          
+            mountPath: {{ .Values.media.root }}   
