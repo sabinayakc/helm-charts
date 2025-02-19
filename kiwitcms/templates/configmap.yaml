@@ -6,11 +6,6 @@ data:
   settings.py: |
     import os
 
-    # Add 'social_django' to the INSTALLED_APPS
-    INSTALLED_APPS += [
-        'social_django',
-    ]
-
     # Add the authentication backends
     AUTHENTICATION_BACKENDS = (
         'social_core.backends.azuread.AzureADOAuth2',
