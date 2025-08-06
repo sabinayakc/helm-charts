@@ -3,6 +3,16 @@ entries:
   kiwi:
   - apiVersion: v2
     appVersion: latest
+    created: "2025-08-06T16:56:20.5382673-05:00"
+    description: Kiwi TCMS - open source test management
+    digest: dec969f36763460275efb1c60676d9134e766a1dfc0ea5d82e43d4cf7f9b1a76
+    name: kiwi
+    type: application
+    urls:
+    - kiwi-0.3.5.tgz
+    version: 0.3.5
+  - apiVersion: v2
+    appVersion: latest
     created: "2025-02-19T15:41:33.8085783-06:00"
     description: Kiwi TCMS - open source test management
     digest: 0b1bb95a703a5432646793d800765bddc84eb24370383ff3d20777203d75b5e1
@@ -11,4 +21,4 @@ entries:
     urls:
     - kiwi-0.3.4.tgz
     version: 0.3.4
-generated: "2025-02-19T15:41:33.8085783-06:00"
+generated: "2025-08-06T16:56:20.5369568-05:00"
