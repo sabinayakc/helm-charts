@@ -30,6 +30,10 @@ spec:
           {{- else -}}
           emptyDir: {}
           {{- end }}
+        - name: kiwi-local-settings
+          secret:
+            secretName: env-vars
+            defaultMode: 420          
 
       initContainers:
         - name: migrations
@@ -143,4 +147,7 @@ spec:
 
           volumeMounts:
           - name: media
-            mountPath: {{ .Values.media.root }}   
+            mountPath: {{ .Values.media.root }} 
+          - name: kiwi-local-settings
+            mountPath: >-
+              /venv/lib64/python3.11/site-packages/tcms/settings/local_settings.py              
